@@ -29,11 +29,10 @@ import java.util.Scanner;
     }
 long num;
     boolean flag;
-    public boolean MobileNumber() {
-
+    public void MobileNumber() {
+        Scanner sc = new Scanner(System.in);
         flag = false;
         try {
-            Scanner sc = new Scanner(System.in);
             System.out.println("*************************************************************************************");
             System.out.print("Enter your mobile number: +91");
             num = sc.nextLong();
@@ -50,15 +49,19 @@ long num;
             if (numStr.length() == 10)
             {
                 OTP();
-                flag = false;
+               // flag = false;
             }
             else
             {
                 System.out.println("enter a valid no. of 10 digit!! ");
-                flag = true;
+               // flag = true;
+                MobileNumber();
             }
         }
-        return flag;
+        else
+        {
+            MobileNumber();
+        }
     }
 }
 public class User
@@ -66,12 +69,7 @@ public class User
     public static void main(String[] args)
     {
         Enter enter = new Enter();
-        boolean bool = enter.MobileNumber();
-        while (bool == true)
-        {
-            enter.MobileNumber();
-        }
-
+        enter.MobileNumber();
     }
 }
 
