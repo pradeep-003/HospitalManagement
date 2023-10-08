@@ -1,5 +1,7 @@
 package CareConnect;
 
+import java.util.Scanner;
+
 public class Facilities
 {
     {
@@ -25,6 +27,28 @@ public class Facilities
                 "\n" +
                 "10. Patient Support Services: Hospitals offer various patient support services such as nutrition counseling, social work, pastoral care, and psychological counseling to address the holistic needs of patients.\n" +
                 "\n" +
-                "These are some of the core facilities provided by hospitals, but the specific services and amenities can vary depending on the hospital's size, location, and specialization. Hospitals are essential healthcare institutions that play a critical role in diagnosing, treating, and supporting patients with a wide range of medical conditions and needs.");
+                "These are some of the core facilities provided by hospitals, but the specific services and amenities can vary depending on the hospital's size, location, and specialization. Hospitals are essential healthcare institutions that play a critical role in diagnosing, treating, and supporting patients with a wide range of medical conditions and needs.\n");
+
+//        int num = 0;
+//        Scanner sc = new Scanner(System.in);
+//        System.out.println("Press 1-Main Menu, 2-exit");
+//        try
+//        {
+//         num = sc.nextInt();
+//        }
+//        catch (Exception e)
+//        {
+//            System.out.println("Write only numbers. ");
+//        }
+//        switch (num)
+//        {
+//            case 1: Handle h = new Handle();
+//                    h.menuDriven();
+//                    break;
+//            case 2: break;
+//            default:
+//                System.out.println("Enter a valid number");
+//                break;
+//        }
     }
 }

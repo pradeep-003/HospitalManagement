@@ -1,12 +1,21 @@
 package CareConnect;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Random;
 import java.util.Scanner;
 
 public class BookYourMeal
 {
     String s; long codee;
+
+    public BookYourMeal() throws IOException {
+    }
+
     void meal()
     {
+        new Divider();
         System.out.println("1. ");
         System.out.println
                 (
@@ -17,9 +26,11 @@ public class BookYourMeal
                 );
         System.out.println("2. Forget your meal code");
     }
-    void choose()
-    {
-         int p1;
+    void choose() throws IOException {
+        File f = new File("Info","activity.txt");
+        FileWriter fw = new FileWriter(f, true);
+        PrintWriter pw = new PrintWriter(fw);
+        int p1;
         Scanner sc = new Scanner(System.in);
         int num = sc.nextInt();
         Random ran = new Random();
@@ -56,26 +67,49 @@ public class BookYourMeal
                         break;
                         case 9: s = "Tofu Bowl";
 
-//                            System.out.println("your " + s + " is booked collect it from Mess by telling them your code ");
-//                            int code = ran.nextInt(10000, 99999);
-//                            System.out.println( "Your code is " + code);
-//                            codee = code;
                     }
                     System.out.println("your " + s + " is booked collect it from Mess by telling them your code ");
+                    pw.print("booked " + s + "  Code: " );
                     int code = ran.nextInt(10000, 99999);
                     System.out.println( "Your code is " + code);
-                    codee = code;
+                    pw.println(code);
+                    pw.close();
+                    fw.close();
             }
         }
     }
 
-    void forgetCode()
-    {
-        if(codee == 0)
-        System.out.println("You have not purchased anything ");
+    void forgetCode() throws IOException {
+        File f = new File("Info","activity.txt");
+        FileWriter fw = new FileWriter(f, true);
+        PrintWriter pw = new PrintWriter(fw);
+            Random ran1 = new Random();
+            int code = ran1.nextInt(10000, 99999);
+            System.out.println( "New code is " + code);
+            pw.println("New code for booked meal is: " +code);
+            pw.close();
+            fw.close();
+    }
+
+    void caller() throws IOException {
+        Scanner sc = new Scanner(System.in);
+        new Divider();
+        System.out.println("Press 1-choose, 2-forget mealCode");
+        int num3 = sc.nextInt();
+        if (num3 == 2)
+        {
+            forgetCode();
+        }
+        else if (num3 == 1)
+        {
+            new Divider();
+            System.out.println("Press b/w 1-9 to select your meal listed above");
+            choose();
+        }
         else
         {
-            System.out.println("Your code is: " + codee);
+            System.out.println("Enter a valid number. ");
+            caller();
         }
     }
 }

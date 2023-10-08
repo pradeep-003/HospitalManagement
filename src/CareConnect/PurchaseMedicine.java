@@ -1,10 +1,17 @@
 package CareConnect;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class PurchaseMedicine
 {
     int i = 1;
+
+    public PurchaseMedicine() throws IOException {
+    }
 
     boolean repeat()
         {
@@ -19,7 +26,10 @@ public class PurchaseMedicine
                return val;
             }
         }
-void choice() {
+void choice() throws IOException {
+    File f = new File("Info","activity.txt");
+    FileWriter fw = new FileWriter(f, true);
+    PrintWriter pw = new PrintWriter(fw);
     Scanner sc = new Scanner(System.in);
     System.out.println("Enter your room number");
     int roomNo = sc.nextInt();
@@ -30,6 +40,9 @@ void choice() {
         String medicineName = scan.nextLine();
         System.out.println( i + " ---> " + medicineName);
         System.out.println("medicine " + medicineName + " is booked to room number " + roomNo);
+        pw.println("medicine " + medicineName + " is booked to room number " + roomNo);
+        pw.close();
+        fw.close();
         i++;
         flag = repeat();
         }
