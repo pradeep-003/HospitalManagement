@@ -27,14 +27,14 @@ public class PurchaseMedicine
             }
         }
 void choice() throws IOException {
-    File f = new File("Info","activity.txt");
-    FileWriter fw = new FileWriter(f, true);
-    PrintWriter pw = new PrintWriter(fw);
     Scanner sc = new Scanner(System.in);
     System.out.println("Enter your room number");
     int roomNo = sc.nextInt();
     boolean flag = true;
     while(flag) {
+        File f = new File("Info","activity.txt");
+        FileWriter fw = new FileWriter(f, true);
+        PrintWriter pw = new PrintWriter(fw);
         Scanner scan = new Scanner(System.in);
         System.out.println("Enter The Medicine names: ");
         String medicineName = scan.nextLine();

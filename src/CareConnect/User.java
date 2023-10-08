@@ -112,6 +112,7 @@ long num;
             pw.println("Mobile Number: "+ num);
             pw.close();
             fw.close();
+            flag = false;
             }
         catch (Exception e)
         {
